@@ -117,6 +117,7 @@ module Miscreant
       # @return [String] encoded STREAM nonce
       def next(last_block)
         raise FinishedError, "STREAM is already finished" if @finished
+
         @finished = last_block
 
         encoded_nonce = [@nonce_prefix, @counter, last_block ? LAST_BLOCK_FLAG : 0].pack("a8NC")

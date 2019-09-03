@@ -24,7 +24,7 @@ module Miscreant
 
       # Inspect the contents of the block in hex
       def inspect
-        "#<#{self.class} data:\"#{@data.unpack('H*').first}\">"
+        "#<#{self.class} data:\"#{@data.unpack1('H*')}\">"
       end
 
       # Retrieve the value of the byte at the given index as an integer
