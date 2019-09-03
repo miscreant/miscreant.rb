@@ -13,7 +13,7 @@ Gem::Specification.new do |spec|
     Misuse resistant symmetric encryption library providing AES-SIV (RFC 5297),
     AES-PMAC-SIV, and STREAM constructions
   DESCRIPTION
-  spec.homepage      = "https://github.com/miscreant/miscreant/tree/master/ruby/"
+  spec.homepage      = "https://miscreant.io"
   spec.licenses      = ["MIT"]
   spec.version       = Miscreant::VERSION
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
