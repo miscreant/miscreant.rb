@@ -10,7 +10,7 @@ class Miscreant::Internals::AES::BlockCipher::Example
   attr_reader :key, :src, :dst
 
   # Default file to load examples from
-  DEFAULT_EXAMPLES = File.expand_path("../../../../vectors/aes.tjson", __FILE__)
+  DEFAULT_EXAMPLES = File.expand_path("../../../vectors/aes.tjson", __FILE__)
 
   def self.load_file(filename = DEFAULT_EXAMPLES)
     examples = TJSON.load_file(filename).fetch("examples")
@@ -30,7 +30,7 @@ class Miscreant::Internals::AES::CTR::Example
   attr_reader :key, :iv, :plaintext, :ciphertext
 
   # Default file to load examples from
-  DEFAULT_EXAMPLES = File.expand_path("../../../../vectors/aes_ctr.tjson", __FILE__)
+  DEFAULT_EXAMPLES = File.expand_path("../../../vectors/aes_ctr.tjson", __FILE__)
 
   def self.load_file(filename = DEFAULT_EXAMPLES)
     examples = TJSON.load_file(filename).fetch("examples")
@@ -51,7 +51,7 @@ class Miscreant::AES::CMAC::Example
   attr_reader :key, :message, :tag
 
   # Default file to load examples from
-  DEFAULT_EXAMPLES = File.expand_path("../../../../vectors/aes_cmac.tjson", __FILE__)
+  DEFAULT_EXAMPLES = File.expand_path("../../../vectors/aes_cmac.tjson", __FILE__)
 
   def self.load_file(filename = DEFAULT_EXAMPLES)
     examples = TJSON.load_file(filename).fetch("examples")
@@ -71,7 +71,7 @@ class Miscreant::AES::PMAC::Example
   attr_reader :name, :key, :message, :tag
 
   # Default file to load examples from
-  DEFAULT_EXAMPLES = File.expand_path("../../../../vectors/aes_pmac.tjson", __FILE__)
+  DEFAULT_EXAMPLES = File.expand_path("../../../vectors/aes_pmac.tjson", __FILE__)
 
   def self.load_file(filename = DEFAULT_EXAMPLES)
     examples = TJSON.load_file(filename).fetch("examples")
@@ -92,10 +92,10 @@ class Miscreant::AES::SIV::Example
   attr_reader :name, :key, :ad, :plaintext, :ciphertext
 
   # AES-SIV (RFC 5297) examples
-  CMAC_EXAMPLES = File.expand_path("../../../../vectors/aes_siv.tjson", __FILE__)
+  CMAC_EXAMPLES = File.expand_path("../../../vectors/aes_siv.tjson", __FILE__)
 
   # AES-PMAC-SIV examples
-  PMAC_EXAMPLES = File.expand_path("../../../../vectors/aes_pmac_siv.tjson", __FILE__)
+  PMAC_EXAMPLES = File.expand_path("../../../vectors/aes_pmac_siv.tjson", __FILE__)
 
   def self.load_cmac_examples
     load_file(CMAC_EXAMPLES)
@@ -125,7 +125,7 @@ class Miscreant::AEAD::Example
   attr_reader :name, :alg, :key, :ad, :nonce, :plaintext, :ciphertext
 
   # Default file to load examples from
-  DEFAULT_EXAMPLES = File.expand_path("../../../../vectors/aes_siv_aead.tjson", __FILE__)
+  DEFAULT_EXAMPLES = File.expand_path("../../../vectors/aes_siv_aead.tjson", __FILE__)
 
   def self.load_file(filename = DEFAULT_EXAMPLES)
     examples = TJSON.load_file(filename).fetch("examples")
@@ -149,7 +149,7 @@ class Miscreant::STREAM::Example
   attr_reader :name, :alg, :key, :nonce, :blocks
 
   # Default file to load examples from
-  DEFAULT_EXAMPLES = File.expand_path("../../../../vectors/aes_siv_stream.tjson", __FILE__)
+  DEFAULT_EXAMPLES = File.expand_path("../../../vectors/aes_siv_stream.tjson", __FILE__)
 
   Block = Struct.new(:ad, :plaintext, :ciphertext)
 
@@ -175,7 +175,7 @@ class DblExample
   attr_reader :input, :output
 
   # Default file to load examples from
-  DEFAULT_EXAMPLES = File.expand_path("../../../../vectors/dbl.tjson", __FILE__)
+  DEFAULT_EXAMPLES = File.expand_path("../../../vectors/dbl.tjson", __FILE__)
 
   def self.load_file(filename = DEFAULT_EXAMPLES)
     examples = TJSON.load_file(filename).fetch("examples")
