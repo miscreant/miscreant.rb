@@ -16,6 +16,7 @@ module Miscreant
       # @return [String] newly generated AES-SIV key
       def self.generate_key(size = 32)
         raise ArgumentError, "key size must be 32 or 64 bytes" unless [32, 64].include?(size)
+
         SecureRandom.random_bytes(size)
       end
 
@@ -53,6 +54,7 @@ module Miscreant
       # @return [String] encrypted ciphertext
       def seal(plaintext, associated_data = [])
         raise TypeError, "expected String, got #{plaintext.class}" unless plaintext.is_a?(String)
+
         v = _s2v(associated_data, plaintext)
         ciphertext = @ctr.encrypt(_zero_iv_bits(v), plaintext)
         v + ciphertext
@@ -67,6 +69,7 @@ module Miscreant
       # @return [String] decrypted plaintext
       def open(ciphertext, associated_data = [])
         raise TypeError, "expected String, got #{ciphertext.class}" unless ciphertext.is_a?(String)
+
         v = ciphertext[0, Internals::Block::SIZE]
         plaintext = @ctr.encrypt(_zero_iv_bits(v), ciphertext[Internals::Block::SIZE..-1])
         t = _s2v(associated_data, plaintext)

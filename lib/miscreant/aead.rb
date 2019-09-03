@@ -15,6 +15,7 @@ module Miscreant
     # @return [String] newly generated AES-SIV key
     def self.generate_key(size = 32)
       raise ArgumentError, "key size must be 32 or 64 bytes" unless [32, 64].include?(size)
+
       AES::SIV.generate_key(size)
     end
 

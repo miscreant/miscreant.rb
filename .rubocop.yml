@@ -1,6 +1,6 @@
 AllCops:
   DisplayCopNames: true
-  TargetRubyVersion: 2.2
+  TargetRubyVersion: 2.5
 
 #
 # Metrics
@@ -10,16 +10,13 @@ Metrics/AbcSize:
   Enabled: false
 
 Metrics/BlockLength:
-  Max: 50
+  Max: 100
 
 Metrics/CyclomaticComplexity:
   Enabled: false
 
 Metrics/PerceivedComplexity:
   Enabled: false
-
-Metrics/BlockLength:
-  Max: 100
 
 Metrics/ClassLength:
   Max: 100
@@ -29,6 +26,13 @@ Metrics/LineLength:
 
 Metrics/MethodLength:
   Max: 25
+
+#
+# Naming
+#
+
+Naming/UncommunicativeMethodParamName:
+  Enabled: false
 
 #
 # Style
