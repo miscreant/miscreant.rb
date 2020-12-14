@@ -53,6 +53,15 @@ RSpec.describe Miscreant::AEAD do
           end.to raise_error(Miscreant::IntegrityError)
         end
       end
+
+      it "should raise ArgumentError if wrong encoding" do
+        ex = test_vectors.first
+        aead = described_class.new(ex.alg, ex.key)
+        ciphertext = ex.ciphertext.dup.force_encoding(Encoding::UTF_8)
+        expect do
+          aead.open(ciphertext, nonce: example_nonce, ad: example_ad)
+        end.to raise_error(ArgumentError, "ciphertext must be Encoding::BINARY")
+      end
     end
   end
 end
