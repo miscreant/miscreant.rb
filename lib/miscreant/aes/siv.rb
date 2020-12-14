@@ -68,7 +68,7 @@ module Miscreant
       # @raise [Miscreant::IntegrityError] ciphertext and/or associated data are corrupt or tampered with
       # @return [String] decrypted plaintext
       def open(ciphertext, associated_data = [])
-        raise TypeError, "expected String, got #{ciphertext.class}" unless ciphertext.is_a?(String)
+        Internals::Util.validate_bytestring("ciphertext", ciphertext)
 
         v = ciphertext[0, Internals::Block::SIZE]
         plaintext = @ctr.encrypt(_zero_iv_bits(v), ciphertext[Internals::Block::SIZE..-1])
