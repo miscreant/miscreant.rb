@@ -11,6 +11,6 @@ end
 group :development, :test do
   gem "rake",              require: false
   gem "rspec",   "~> 3.5", require: false
-  gem "rubocop", "0.79.0", require: false
+  gem "rubocop", "1.7.0", require: false
   gem "tjson",   "~> 0.5", require: false
 end
